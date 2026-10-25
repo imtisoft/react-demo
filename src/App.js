@@ -11,7 +11,7 @@ function App() {
    
 <Navbar title="Text Magic Web"/>
 <div className="container">
-<TextForm heading="Enter Text To ANALYZE"/>
+<TextForm heading="Enter Your Text Here :"/>
 </div>
 <About/>
 
