@@ -1,8 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './Components/Navbar';
+import TextForm from './Components/TextForm';
+import About from './Components/About';
+
 
 function App() {
   return (
+    <>
+   
+<Navbar title="Text Magic Web"/>
+<div className="container">
+<TextForm heading="Enter Text To ANALYZE"/>
+</div>
+<About/>
+
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -15,11 +27,13 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React with IMTIYAZ
         </a>
       </header>
     </div>
+    </>
   );
 }
 
-export default App;
+ export default App;
+
