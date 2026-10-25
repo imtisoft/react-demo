@@ -46,7 +46,7 @@ const Navbar = (props) => {
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true">Disabled</a>
+              <a className="nav-link disabled" aria-disabled="true" href="/">Disabled</a>
             </li>
           </ul>
           
