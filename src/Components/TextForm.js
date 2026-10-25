@@ -13,7 +13,7 @@ export default function TextForm(props) {
   };
 
   // 10 digit number extract
-  const [extractedNumber, setExtractedNumber] = useState('');
+  //const [extractedNumber, setExtractedNumber] = useState('');
   
 
     const handleUpClick = () => {
@@ -58,11 +58,7 @@ export default function TextForm(props) {
       <p>{text.split(" ").length} Words and {text.length} Characters</p>
       <p>{0.008 * text.split(" ").length} Minutes Required to read it</p>
     </div>
-    <div className="container my-2">
-      <p>
-        <strong>Extracted Number:</strong> {extractedNumber}
-      </p>
-    </div>
+    
     </>
   )
 }
