@@ -46,21 +46,23 @@ export default function TextForm(props) {
     <>
     <div className="container">
    <div className="mg-3">
-        <label htmlFor="myBox" className="form-label">{props.heading}</label>
+        <label htmlFor="myBox" className="form-label"><b>{props.heading}</b></label>
         <textarea className="form-control" id="myBox" rows="5" value={text} onChange={handleOnChange}></textarea>
         
     </div>
     <div className="container my-2">
-     <button className="btn btn-primary" onClick={handleUpClick} >Convert to Uppercase</button>
-     <button className="btn btn-info mx-2" onClick={handleLoClick} >Convert to Lowercase</button>
-     <button className="btn btn-danger mx-2" onClick={handleClearClick} >Clear Text</button>
-     <button className="btn btn-success mx-2" onClick={handleCopy} >Copy Text</button>
-     <button className="btn btn-warning mx-2" onClick={handleExtraSpaces} ><i class="bi bi-search"></i>Remove Extra Spaces</button>
+     <button className="btn btn-primary mx-2" onClick={handleUpClick} ><i class="fa-solid fa-upload"></i> Convert to Uppercase</button>
+     <button className="btn btn-info mx-2" onClick={handleLoClick} ><i class="fa-solid fa-download"></i> Convert to Lowercase</button>
+     <button className="btn btn-danger mx-2" onClick={handleClearClick} ><i class="fa-solid fa-rotate"></i> Clear Text</button>
+     <button className="btn btn-success mx-2" onClick={handleCopy} ><i class="fa-solid fa-right-from-bracket"></i> Copy Text</button>
+     <button className="btn btn-warning mx-2" onClick={handleExtraSpaces} ><i class="fa-solid fa-trash"></i> Remove Extra Spaces</button>
+  <br></br>
   
     </div>
     </div>
+    
     <div className="container my-2">
-      <h3>Your Text Summary</h3>
+      <h3 className="text-danger">Your Text Summary</h3>
       <p>{text}</p>
       <p>{text.split(" ").length} Words and {text.length} Characters</p>
       <p>{0.008 * text.split(" ").length} Minutes Required to read it</p>
