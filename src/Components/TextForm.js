@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 
 export default function TextForm(props) {
 
+  //Remove Extra Spaces
+  const handleExtraSpaces = () => {
+    let newTxt = text.split(/[ ]+/);
+    setText(newTxt.join(" "));
+  };
+
   // Copy Text to ClipBoard
   const handleCopy = () => {
   console.log("I am Copy");
@@ -45,11 +51,12 @@ export default function TextForm(props) {
         
     </div>
     <div className="container my-2">
-     <button className="btn btn-primary mx-2" onClick={handleUpClick} >Convert to Uppercase</button>
+     <button className="btn btn-primary" onClick={handleUpClick} >Convert to Uppercase</button>
      <button className="btn btn-info mx-2" onClick={handleLoClick} >Convert to Lowercase</button>
      <button className="btn btn-danger mx-2" onClick={handleClearClick} >Clear Text</button>
-     <button className="btn btn-danger mx-2" onClick={handleCopy} >Copy Text</button>
-     
+     <button className="btn btn-success mx-2" onClick={handleCopy} >Copy Text</button>
+     <button className="btn btn-warning mx-2" onClick={handleExtraSpaces} ><i class="bi bi-search"></i>Remove Extra Spaces</button>
+  
     </div>
     </div>
     <div className="container my-2">
