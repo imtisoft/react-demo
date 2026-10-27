@@ -50,8 +50,8 @@ export default function TextForm(props) {
         <textarea className="form-control" id="myBox" rows="5" value={text} onChange={handleOnChange}></textarea>
         
     </div>
-    <div className="container my-2">
-     <button className="btn btn-primary mx-2" onClick={handleUpClick} ><i class="fa-solid fa-upload"></i> Convert to Uppercase</button>
+    <div className="container">
+     <button className="btn btn-primary mx-2 my-3" onClick={handleUpClick} ><i class="fa-solid fa-upload"></i> Convert to Uppercase</button>
      <button className="btn btn-info mx-2" onClick={handleLoClick} ><i class="fa-solid fa-download"></i> Convert to Lowercase</button>
      <button className="btn btn-danger mx-2" onClick={handleClearClick} ><i class="fa-solid fa-rotate"></i> Clear Text</button>
      <button className="btn btn-success mx-2" onClick={handleCopy} ><i class="fa-solid fa-right-from-bracket"></i> Copy Text</button>

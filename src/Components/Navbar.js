@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 const Navbar = (props) => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">{props.title}</a>
+        <img src="../img/wiki.png" alt="" height="30px" width="30px" />
+        <a className="navbar-brand mx-3" href="/">{props.title}</a>
         <button 
           className="navbar-toggler" 
           type="button" 
@@ -50,7 +52,14 @@ const Navbar = (props) => {
             </li>
           </ul>
           
-          <form className="d-flex" role="search">
+          
+  <div className="form-check form-switch">
+    <input className='form-check-input' type="checkbox" value="" id="switchMdLabel" role="switch" switch/>
+    <label htmlFor="switchMdLabel" className='text-light'>Dark Mode</label>
+  </div>
+
+          
+          <form className="d-flex mx-3" role="search">
             <input 
               className="form-control" 
               type="search" 

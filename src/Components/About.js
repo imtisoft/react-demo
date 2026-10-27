@@ -25,6 +25,7 @@ const toggleStyle = () => {
 };
 
   return (
+    <>
     <div className="container my-3" style={myStyle}>
         <h3>Accordion Example</h3>
             <div class="accordion">
@@ -58,8 +59,11 @@ const toggleStyle = () => {
         </div>
 
         <button onClick={toggleStyle} className="btn btn-info my-3">{btnText}</button>
+
+        
     </div>
 
-    
+
+    </>
   )
 }
