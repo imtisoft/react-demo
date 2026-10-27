@@ -51,11 +51,11 @@ export default function TextForm(props) {
         
     </div>
     <div className="container">
-     <button className="btn btn-primary mx-2 my-3" onClick={handleUpClick} ><i className="fa-solid fa-upload"></i> Convert to Uppercase</button>
-     <button className="btn btn-info mx-2" onClick={handleLoClick} ><i className="fa-solid fa-download"></i> Convert to Lowercase</button>
-     <button className="btn btn-danger mx-2" onClick={handleClearClick} ><i className="fa-solid fa-rotate"></i> Clear Text</button>
-     <button className="btn btn-success mx-2" onClick={handleCopy} ><i className="fa-solid fa-right-from-bracket"></i> Copy Text</button>
-     <button className="btn btn-warning mx-2" onClick={handleExtraSpaces} ><i className="fa-solid fa-trash"></i> Remove Extra Spaces</button>
+     <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick} ><i className="fa-solid fa-upload"></i> Convert to Uppercase</button>
+     <button className="btn btn-info mx-2 my-2" onClick={handleLoClick} ><i className="fa-solid fa-download"></i> Convert to Lowercase</button>
+     <button className="btn btn-danger mx-2 my-2" onClick={handleClearClick} ><i className="fa-solid fa-rotate"></i> Clear Text</button>
+     <button className="btn btn-success mx-2 my-2" onClick={handleCopy} ><i className="fa-solid fa-right-from-bracket"></i> Copy Text</button>
+     <button className="btn btn-warning mx-2 my-2" onClick={handleExtraSpaces} ><i className="fa-solid fa-trash"></i> Remove Extra Spaces</button>
   <br></br>
   
     </div>
