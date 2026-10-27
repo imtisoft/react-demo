@@ -7,11 +7,8 @@ import { useState } from 'react';
 
 
 function App() {
-  const [_mode,_setMode] = useState('dark');
-
   return (
     <>
-   
 <Navbar title="Text Magic Web"  />
 <div className="container">
 <TextForm heading="Enter Your Text Here :"/>

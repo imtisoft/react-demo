@@ -54,7 +54,7 @@ const Navbar = (props) => {
           
           
   <div className="form-check form-switch">
-    <input className="form-check-input" type="checkbox" value="" id="switchMdLabel" role="switch" switch/>
+    <input className="form-check-input" type="checkbox" value="" id="switchMdLabel" role="switch" switch="true"/>
     <label htmlFor="switchMdLabel" className="text-light">Dark Mode</label>
   </div>
 
