@@ -3,13 +3,30 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
 import About from './Components/About';
+import React,{ useState } from 'react';
 //import { useState } from 'react';
 
 
 function App() {
+  const [myMode,setMode]=useState('light');
+  // setMode('light');
+const toggleMode=()=>{
+  if(myMode==='dark')
+  {
+    setMode('light');
+    document.body.style.backgroundColor='white';
+  }
+  else
+  {
+    setMode('dark');
+    document.body.style.backgroundColor='black';
+  }
+}
+
+
   return (
     <>
-<Navbar title="Text Magic Web"  />
+<Navbar title="Text Magic Web" mode={myMode} toggleMode={toggleMode}/>
 <div className="container">
 <TextForm heading="Enter Your Text Here :"/>
 </div>

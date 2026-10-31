@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 const Navbar = (props) => {
   return (
-    
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    // <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} sticky-top`}>
       <div className="container-fluid">
         <img src="../img/wiki.png" alt="" height="30px" width="30px" />
-        <a className="navbar-brand mx-3" href="/">{props.title}</a>
+        <a className="navbar-brand mx-3" href="/">{props.title} {props.mode}</a>
         <button 
           className="navbar-toggler" 
           type="button" 
@@ -53,9 +53,9 @@ const Navbar = (props) => {
           </ul>
           
           
-  <div className="form-check form-switch">
-    <input className="form-check-input" type="checkbox" value="" id="switchMdLabel" role="switch" switch="true"/>
-    <label htmlFor="switchMdLabel" className="text-light">Dark Mode</label>
+  <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
+    <input className="form-check-input" type="checkbox" onClick={props.toggleMode} value="" id="switchMdLabel" role="switch" switch="true"/>
+    <label htmlFor="switchMdLabel" className="form-check-label">Enable {props.mode==='light'?'dark':'light'} Mode</label>
   </div>
 
           
