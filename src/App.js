@@ -4,22 +4,36 @@ import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
 import About from './Components/About';
 import React,{ useState } from 'react';
+import Alert from './Components/Alert';
 //import { useState } from 'react';
 
 
 function App() {
   const [myMode,setMode]=useState('light');
-  // setMode('light');
+  const [alert,setAlert]=useState(null);
+
+  const showAlert=(message,type)=>{
+        setAlert({
+          msg:message,
+          type:type
+            })
+            setTimeout(() => {
+              setAlert(null);
+            }, 3000);
+          }
+  
 const toggleMode=()=>{
   if(myMode==='dark')
   {
     setMode('light');
     document.body.style.backgroundColor='white';
+    showAlert("Light Mode Enabled","Succes:");
   }
   else
   {
     setMode('dark');
-    document.body.style.backgroundColor='black';
+    document.body.style.backgroundColor='grey';
+    showAlert("Dark Mode Enabled","Succes:");
   }
 }
 
@@ -27,8 +41,9 @@ const toggleMode=()=>{
   return (
     <>
 <Navbar title="Text Magic Web" mode={myMode} toggleMode={toggleMode}/>
+<Alert alert={alert}/>
 <div className="container">
-<TextForm heading="Enter Your Text Here :"/>
+<TextForm heading="Enter Your Text Here :" mode={myMode} showAlert={showAlert}/>
 </div>
 <About/>
 

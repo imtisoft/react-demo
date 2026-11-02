@@ -16,6 +16,7 @@ export default function TextForm(props) {
   textC.select();
   // textC.selectionRange(0,9999);
   navigator.clipboard.writeText(textC.value);
+  props.showAlert("Text Copied to clipboard!","Success:"); 
   };
 
   // 10 digit number extract
@@ -25,17 +26,20 @@ export default function TextForm(props) {
     const handleUpClick = () => {
     console.log("Uppercase was clicked" + text);
     let newText = text.toUpperCase();
-    setText(newText); 
+    setText(newText);
+    props.showAlert("Converted to Uppercase!","Success:"); 
     };
 
     const handleLoClick = () => {
     console.log("Lowercase was clicked" + text);
     let newText = text.toLowerCase();
     setText(newText); 
+
     };
 
     const handleOnChange = (event) =>{
         setText(event.target.value);
+        
     }
 
     const handleClearClick=()=>{
@@ -44,11 +48,10 @@ export default function TextForm(props) {
     const [text, setText] = useState("Enter Text Here");
   return (
     <>
-    <div className="container">
+    <div className={`container text-${props.mode==='light'?'dark':'light'}`}>
    <div className="mg-3">
-        <label htmlFor="myBox" className="form-label"><b>{props.heading}</b></label>
-        <textarea className="form-control" id="myBox" rows="5" value={text} onChange={handleOnChange}></textarea>
-        
+        <label htmlFor="myBox" className="form-label"><b>{props.heading} {props.mode}</b></label>
+        <textarea className={`form-control text-${props.mode==='light'?'dark':'light'} bg-${props.mode}`} id="myBox" rows="5" value={text} onChange={handleOnChange}></textarea>
     </div>
     <div className="container">
      <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick} ><i className="fa-solid fa-upload"></i> Convert to Uppercase</button>
@@ -61,8 +64,8 @@ export default function TextForm(props) {
     </div>
     </div>
     
-    <div className="container my-2">
-      <h3 className="text-danger">Your Text Summary</h3>
+    <div className={`container my-2 text-${props.mode==='light'?'dark':'light'}`}>
+      <h3>Your Text Summary {props.mode}</h3>
       <p>{text}</p>
       <p>{text.split(" ").length} Words and {text.length} Characters</p>
       <p>{0.008 * text.split(" ").length} Minutes Required to read it</p>
