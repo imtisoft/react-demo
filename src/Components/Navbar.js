@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from "react-router";
 
 const Navbar = (props) => {
   return (
     // <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode} sticky-top`}>
       <div className="container-fluid">
-        <img src="../img/wiki.png" alt="" height="30px" width="30px" />
-        <a className="navbar-brand mx-3" href="/">{props.title} {props.mode}</a>
+       <Link className="navbar-brand mx-3" to="/"><img src="../img/wiki.png" alt="" height="30px" width="30px" /></Link> 
+        <Link className="navbar-brand mx-3" to="/">{props.title}</Link>
         <button 
           className="navbar-toggler" 
           type="button" 
@@ -23,36 +24,19 @@ const Navbar = (props) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">Home</a>
+              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">Link</a>
+              <Link className="nav-link" to="/about">About US</Link>
             </li>
-            <li className="nav-item dropdown">
-              <a 
-                className="nav-link dropdown-toggle" 
-                href="/" 
-                role="button" 
-                data-bs-toggle="dropdown" 
-                aria-expanded="false"
-              >                                 
-                
-                Dropdown
-              </a>
-              <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="/">Action</a></li>
-                <li><a className="dropdown-item" href="/">Another action</a></li>
-                {/* Note: In JSX, the hr tag must be self-closed */}
-                <li><hr className="dropdown-divider" /></li>
-                <li><a className="dropdown-item" href="/">Something else here</a></li>
-              </ul>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link disabled" aria-disabled="true" href="/">Disabled</a>
-            </li>
+            
           </ul>
           
-          
+  {/* <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'} mx-3`}>
+    <input className="form-check-input" type="checkbox" onClick={props.toggleMode} value="" id="switchMdLabel" role="switch" switch="true"/>
+    <label htmlFor="switchMdLabel" className="form-check-label">Enable {props.mode==='light'?'dark':'light'} Header</label>
+  </div> */}
+
   <div className={`form-check form-switch text-${props.mode==='light'?'dark':'light'}`}>
     <input className="form-check-input" type="checkbox" onClick={props.toggleMode} value="" id="switchMdLabel" role="switch" switch="true"/>
     <label htmlFor="switchMdLabel" className="form-check-label">Enable {props.mode==='light'?'dark':'light'} Mode</label>
@@ -84,5 +68,6 @@ Navbar.defaultProps = {
   title: "Set Title Here",
   btnCaption: "Set Button Caption"
 }
+
 
 export default Navbar;

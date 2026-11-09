@@ -45,7 +45,7 @@ export default function TextForm(props) {
     const handleClearClick=()=>{
       setText("");
     }
-    const [text, setText] = useState("Enter Text Here");
+    const [text, setText] = useState("");
   return (
     <>
     <div className={`container text-${props.mode==='light'?'dark':'light'}`}>
@@ -67,7 +67,8 @@ export default function TextForm(props) {
     <div className={`container my-2 text-${props.mode==='light'?'dark':'light'}`}>
       <h3>Your Text Summary {props.mode}</h3>
       <p>{text}</p>
-      <p>{text.split(" ").length} Words and {text.length} Characters</p>
+      <p>{text.length>0?text.split(" ").length:0} Words and {text.length} Characters</p>
+      {/* <p>{text.split(" ").length} Words and {text.length} Characters</p> */}
       <p>{0.008 * text.split(" ").length} Minutes Required to read it</p>
     </div>
     

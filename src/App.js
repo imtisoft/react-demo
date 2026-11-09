@@ -3,12 +3,12 @@ import './App.css';
 import Navbar from './Components/Navbar';
 import TextForm from './Components/TextForm';
 import About from './Components/About';
-import React,{ useState } from 'react';
+import { useState } from 'react';
 import Alert from './Components/Alert';
-//import { useState } from 'react';
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router';
 
 function App() {
+  const [headerMode,setHeaderMode]=useState('light');
   const [myMode,setMode]=useState('light');
   const [alert,setAlert]=useState(null);
 
@@ -17,11 +17,27 @@ function App() {
           msg:message,
           type:type
             })
+            // alert message timeout
             setTimeout(() => {
               setAlert(null);
             }, 3000);
           }
   
+const toggleModeHeader=()=>{
+  if(headerMode==='dark')
+  {
+    setHeaderMode('light');
+    // document.body.style.backgroundColor='white';
+    showAlert("Light Mode Header Enabled","Succes:");
+  }
+  else
+  {
+    setHeaderMode('dark');
+    // document.body.style.backgroundColor='grey';
+    showAlert("Dark Mode Header Enabled","Succes:");
+  }
+}
+          
 const toggleMode=()=>{
   if(myMode==='dark')
   {
@@ -32,24 +48,30 @@ const toggleMode=()=>{
   else
   {
     setMode('dark');
-    document.body.style.backgroundColor='grey';
+    document.body.style.backgroundColor='darkgrey';
     showAlert("Dark Mode Enabled","Succes:");
   }
 }
 
 
   return (
-    <>
-<Navbar title="Text Magic Web" mode={myMode} toggleMode={toggleMode}/>
+    <>    
+     <Router>
+      <Navbar title="Text Magic Web" mode={myMode} toggleMode={toggleMode} toggleModeHeader={toggleModeHeader}/>
 <Alert alert={alert}/>
-<div className="container">
-<TextForm heading="Enter Your Text Here :" mode={myMode} showAlert={showAlert}/>
-</div>
-<About/>
+<div className="container my-3">
+  <Routes>
+    <Route path="/" element={<TextForm showAlert={showAlert} heading="Enter the text to analyze below" mode={myMode} />} />
+    <Route path="/about" element={<About />} />
+  </Routes>
+  </div>
+</Router>
+
+
 
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo} className="App-logo" alt="logo" height="250px" width="250px"/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
